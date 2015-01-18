@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>传递属性 | React</title>
+  <meta name="viewport" content="width=device-width">
+  <meta property="og:title" content="传递属性 | React">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://facebook.github.io/react/docs.zh-CN/transferring-props.html">
+  <meta property="og:image" content="http://facebook.github.io/react/img/logo_og.png">
+  <meta property="og:description" content="A JavaScript library for building user interfaces">
+  <meta property="fb:app_id" content="623268441017527">
+
+  <link rel="shortcut icon" href="/react/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="React" href="http://facebook.github.io/react/feed.xml">
+
+  <link rel="stylesheet" href="/react/css/syntax.css">
+  <link rel="stylesheet" href="/react/css/codemirror.css">
+  <link rel="stylesheet" href="/react/css/react.css">
+
+  <script type="text/javascript" src="//use.typekit.net/vqa1hcx.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <!--[if lte IE 8]>
+  <script type="text/javascript" src="/react/js/html5shiv.min.js"></script>
+  <script type="text/javascript" src="/react/js/es5-shim.min.js"></script>
+  <script type="text/javascript" src="/react/js/es5-sham.min.js"></script>
+  <![endif]-->
+  <script type="text/javascript" src="/react/js/codemirror.js"></script>
+  <script type="text/javascript" src="/react/js/javascript.js"></script>
+  <script type="text/javascript" src="/react/js/react.js"></script>
+  <script type="text/javascript" src="/react/js/JSXTransformer.js"></script>
+  <script type="text/javascript" src="/react/js/live_editor.js"></script>
+  <script type="text/javascript" src="/react/js/showdown.js"></script>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="nav-main">
+      <div class="wrap">
+        <a class="nav-home" href="/react/index.zh-CN.html">
+          <img class="nav-logo" src="/react/img/logo.svg" width="36" height="36">
+          React
+        </a>
+        <ul class="nav-site">
+          <li><a href="/react/docs.zh-CN/getting-started.html">文档</a></li>
+          <li><a href="/react/support.html">支持</a></li>
+          <li><a href="/react/downloads.html">下载</a></li>
+          <li><a href="/react/blog/">博客</a></li>
+          <li><a href="http://github.com/facebook/react">github</a>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <section class="content wrap documentationContent">
+  <div class="nav-docs">
+  <!-- Docs Nav -->
+  
+    <div class="nav-docs-section">
+      <h3>快速入门</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/getting-started.html">开始学习</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/tutorial.html">教程</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/thinking-in-react.html">React编程思想</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>社区资源</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/videos.html">视频教程</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/complementary-tools.html">辅助工具</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/examples.html">范例</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>指南</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/why-react.html">为什么使用 React?</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/displaying-data.html">数据显示</a>
+            
+              <ul>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/jsx-in-depth.html">深入 JSX</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/jsx-spread.html">JSX 扩展属性</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/jsx-gotchas.html">JSX 陷阱（注意事项）</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/interactivity-and-dynamic-uis.html">交互动态UI</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/multiple-components.html">多组件组合</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/reusable-components.html">可复用的组件</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/transferring-props.html" class="active">传递属性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/forms.html">表单</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/working-with-the-browser.html">在浏览器里运行</a>
+            
+              <ul>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/more-about-refs.html">关于更多参考</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/tooling-integration.html">工具集成</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/addons.html">附件</a>
+            
+              <ul>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/animation.html">动画</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/two-way-binding-helpers.html">双向绑定助手</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/class-name-manipulation.html">类名处理</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/test-utils.html">测试工具</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/clone-with-props.html">克隆组件</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/update.html">直接量助手</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/pure-render-mixin.html">PureRenderMixin</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/perf.html">性能工具</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>参考</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/top-level-api.html">顶级 API</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/component-api.html">组件 API</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/component-specs.html">组件的规格和生命周期</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/tags-and-attributes.html">支持的标签和属性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/events.html">事件系统</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/dom-differences.html">DOM差异</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/special-non-dom-attributes.html">特殊的非DOM属性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/reconciliation.html">一致性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/glossary.html">React (虚拟) DOM术语</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>Flux</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/flux-overview.html">Flux 概览</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/flux-todo-list.html">Flux TodoMVC 教程</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  <!-- Tips Nav -->
+  
+    <div class="nav-docs-section">
+      <h3>小提示</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/tips.zh-CN/introduction.html">介绍</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/inline-styles.html">内联样式</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/if-else-in-JSX.html">JSX中得If-Else</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/self-closing-tag.html">自关闭标签</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/maximum-number-of-jsx-root-nodes.html">最大JSX根节点数</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/style-props-value-px.html">样式中属性为像素单位值简写</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/children-props-type.html">子属性的类型</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/controlled-input-null-value.html">空值的输入限制</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/componentWillReceiveProps-not-triggered-after-mounting.html">在Mounting后，componentWillReceiveProps 不触发</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/props-in-getInitialState-as-anti-pattern.html">在getInitialState中的属性是一种反模式</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/dom-event-listeners.html">在组件中的DOM事件监听</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/initial-ajax.html">通过AJAX来加载初始化数据</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/false-in-jsx.html">JSX中的false</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/communicate-between-components.html">组件之间的通讯</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/expose-component-functions.html">揭示组件功能</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/references-to-components.html">组件的参考说明</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/children-undefined.html">this.props.children 未定义</a>
+          </li>
+        
+      </ul>
+    </div>
+  
+</div>
+
+
+  <div class="inner-content">
+    <h1>
+      传递属性
+      <a class="edit-page-link" href="https://github.com/facebook/react/tree/master/docs/docs.zh-CN/06-transferring-props.md" target="_blank">Edit on GitHub</a>
+    </h1>
+    <div class="subHeader"></div>
+
+    <p>在React里一种常见的模式是对一个组件进行抽象封装。在组件外部暴露出一个简单的属性来做一些或许很复杂的实现细节。</p>
+
+<p>你可以使用 <a href="/react/docs.zh-CN/jsx-spread.html">JSX 扩展属性</a> 作为附加属性到原有属性上:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">return</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">}</span> <span class="nx">more</span><span class="o">=</span><span class="s2">&quot;values&quot;</span> <span class="o">/&gt;</span><span class="p">;</span>
+</code></pre></div>
+<p>如果你不使用JSX，你可以用任何帮助对象像ES6<code>Object.assign</code>或者Underscore <code>_.extend</code>来实现：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">return</span> <span class="nx">Component</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">,</span> <span class="p">{</span> <span class="nx">more</span><span class="o">:</span> <span class="s1">&#39;values&#39;</span> <span class="p">}));</span>
+</code></pre></div>
+<p>本教程的其余部分介绍的最佳实践，是使用JSX和实验性的ES7语法。</p>
+<h2><a class="anchor" name=""></a>手动传递 <a class="hash-link" href="#">#</a></h2>
+<p>大部分时候你应该明确的传递属性。同时确保你只是暴露了内部API的一个可以运行的子集。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">FancyCheckbox</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">fancyClass</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">checked</span> <span class="o">?</span> <span class="s1">&#39;FancyChecked&#39;</span> <span class="o">:</span> <span class="s1">&#39;FancyUnchecked&#39;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">fancyClass</span><span class="p">}</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">onClick</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">FancyCheckbox</span> <span class="nx">checked</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">console</span><span class="p">)}</span><span class="o">&gt;</span>
+    <span class="nx">Hello</span> <span class="nx">world</span><span class="o">!</span>
+  <span class="o">&lt;</span><span class="err">/FancyCheckbox&gt;,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">body</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>但是<code>name</code>属性会怎么样呢？或者<code>title</code>属性?或者<code>onMouseOver</code>?</p>
+<h2><a class="anchor" name="jsx..."></a>在JSX中通过<code>...</code>传递 <a class="hash-link" href="#jsx...">#</a></h2>
+<p>有时候逐个传递每个属性是易错和乏味的。在这个情况下你可以使用<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">解构赋值</a>来设置一组未知的属性。</p>
+
+<p>可以通过<code>...other</code>列出所有你想使用的属性。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="p">{</span> <span class="nx">checked</span><span class="p">,</span> <span class="p">...</span><span class="nx">other</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">;</span>
+</code></pre></div>
+<p>除去你正在使用自己的那些属性，这可以确保您传递下去所有的属性。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">FancyCheckbox</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="p">{</span> <span class="nx">checked</span><span class="p">,</span> <span class="p">...</span><span class="nx">other</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">fancyClass</span> <span class="o">=</span> <span class="nx">checked</span> <span class="o">?</span> <span class="s1">&#39;FancyChecked&#39;</span> <span class="o">:</span> <span class="s1">&#39;FancyUnchecked&#39;</span><span class="p">;</span>
+    <span class="c1">// `other` contains { onClick: console.log } but not the checked property</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="p">{...</span><span class="nx">other</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">fancyClass</span><span class="p">}</span> <span class="o">/&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">FancyCheckbox</span> <span class="nx">checked</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">console</span><span class="p">)}</span><span class="o">&gt;</span>
+    <span class="nx">Hello</span> <span class="nx">world</span><span class="o">!</span>
+  <span class="o">&lt;</span><span class="err">/FancyCheckbox&gt;,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">body</span>
+<span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>注意:</p>
+
+<p>在上面的例子中, 这个 <code>checked</code> 属性也是一个有效的DOM属性. 如果你不使用结构的方式，你或许在不经意间传递下去。
+在传递未知<code>other</code>属性时，常用解构模式来做</p>
+</blockquote>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">FancyCheckbox</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">fancyClass</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">checked</span> <span class="o">?</span> <span class="s1">&#39;FancyChecked&#39;</span> <span class="o">:</span> <span class="s1">&#39;FancyUnchecked&#39;</span><span class="p">;</span>
+    <span class="c1">// ANTI-PATTERN: `checked` would be passed down to the inner component</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="p">{...</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">fancyClass</span><span class="p">}</span> <span class="o">/&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div><h2><a class="anchor" name=""></a>使用和传递相同的属性 <a class="hash-link" href="#">#</a></h2>
+<p>如果你的组件需要使用属性但也要传递下去，你可以明确的<code>checked={checked}</code>重传下。这是最好的完全传递<code>this.props</code>对象的方式，因为它更容易重构和验证。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">FancyCheckbox</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="p">{</span> <span class="nx">checked</span><span class="p">,</span> <span class="nx">title</span><span class="p">,</span> <span class="p">...</span><span class="nx">other</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">fancyClass</span> <span class="o">=</span> <span class="nx">checked</span> <span class="o">?</span> <span class="s1">&#39;FancyChecked&#39;</span> <span class="o">:</span> <span class="s1">&#39;FancyUnchecked&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">fancyTitle</span> <span class="o">=</span> <span class="nx">checked</span> <span class="o">?</span> <span class="s1">&#39;X &#39;</span> <span class="o">+</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;O &#39;</span> <span class="o">+</span> <span class="nx">title</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">label</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">input</span> <span class="p">{...</span><span class="nx">other</span><span class="p">}</span>
+          <span class="nx">checked</span><span class="o">=</span><span class="p">{</span><span class="nx">checked</span><span class="p">}</span>
+          <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">fancyClass</span><span class="p">}</span>
+          <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span>
+        <span class="o">/&gt;</span>
+        <span class="p">{</span><span class="nx">fancyTitle</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="err">/label&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>注意:</p>
+
+<p>其他问题。 过把<code>{...other}</code>放在JSX属性之前，确保您的组件的使用者不能覆盖他们。在上面的例子中，我们已经保证了输入将是类型<code>“复选框”</code>的。</p>
+</blockquote>
+<h2><a class="anchor" name="-..."></a>剩下的和扩展属性 <code>...</code> <a class="hash-link" href="#-...">#</a></h2>
+<p>剩下的属性，可以把对象其余属性提取到一个新的对象。它不包括在解构方式列出的每个其他属性。这是一个<a href="https://github.com/sebmarkbage/ecmascript-rest-spread">ES7 proposal</a>的实验性实现。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="p">{</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="p">...</span><span class="nx">z</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">x</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">b</span><span class="o">:</span> <span class="mi">4</span> <span class="p">};</span>
+<span class="nx">x</span><span class="p">;</span> <span class="c1">// 1</span>
+<span class="nx">y</span><span class="p">;</span> <span class="c1">// 2</span>
+<span class="nx">z</span><span class="p">;</span> <span class="c1">// { a: 3, b: 4 }</span>
+</code></pre></div>
+<blockquote>
+<p>注意:</p>
+
+<p>使用<a href="http://npmjs.org/package/react-tools">JSX 命令行工具</a> 使用 <code>--harmony</code> 标志 来激活实验性ES7语法.</p>
+</blockquote>
+<h2><a class="anchor" name="underscore"></a>通过Underscore传递 <a class="hash-link" href="#underscore">#</a></h2>
+<p>如果你没有使用JSX，你可以使用一个现有的类似模式的库。Underscore支持<code>_.omit</code>过滤外部属性和<code>_.extend</code>复制属性到一个新的对象上。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">FancyCheckbox</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">checked</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">checked</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">other</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">omit</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">,</span> <span class="s1">&#39;checked&#39;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">fancyClass</span> <span class="o">=</span> <span class="nx">checked</span> <span class="o">?</span> <span class="s1">&#39;FancyChecked&#39;</span> <span class="o">:</span> <span class="s1">&#39;FancyUnchecked&#39;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="nx">React</span><span class="p">.</span><span class="nx">DOM</span><span class="p">.</span><span class="nx">div</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">extend</span><span class="p">({},</span> <span class="nx">other</span><span class="p">,</span> <span class="p">{</span> <span class="nx">className</span><span class="o">:</span> <span class="nx">fancyClass</span> <span class="p">}))</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+
+    <div class="docs-prevnext">
+      
+        <a class="docs-prev" href="/react/docs/reusable-components.html">&larr; 上一篇</a>
+      
+      
+        <a class="docs-next" href="/react/docs/forms.html">下一篇 &rarr;</a>
+      
+    </div>
+  </div>
+</section>
+
+
+    <footer class="wrap">
+      <div class="left">
+        A Facebook &amp; Instagram collaboration.<br>
+        <a href="/react/acknowledgements.html">Acknowledgements</a>
+      </div>
+      <div class="right">
+        &copy; 2013&ndash;2014 Facebook Inc.<br>
+        Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+      </div>
+    </footer>
+  </div>
+  <div id="fb-root"></div>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41298772-1', 'facebook.github.io');
+    ga('send', 'pageview');
+
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=623268441017527";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>可复用的组件 | React</title>
+  <meta name="viewport" content="width=device-width">
+  <meta property="og:title" content="可复用的组件 | React">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://facebook.github.io/react/docs.zh-CN/reusable-components.html">
+  <meta property="og:image" content="http://facebook.github.io/react/img/logo_og.png">
+  <meta property="og:description" content="A JavaScript library for building user interfaces">
+  <meta property="fb:app_id" content="623268441017527">
+
+  <link rel="shortcut icon" href="/react/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="React" href="http://facebook.github.io/react/feed.xml">
+
+  <link rel="stylesheet" href="/react/css/syntax.css">
+  <link rel="stylesheet" href="/react/css/codemirror.css">
+  <link rel="stylesheet" href="/react/css/react.css">
+
+  <script type="text/javascript" src="//use.typekit.net/vqa1hcx.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <!--[if lte IE 8]>
+  <script type="text/javascript" src="/react/js/html5shiv.min.js"></script>
+  <script type="text/javascript" src="/react/js/es5-shim.min.js"></script>
+  <script type="text/javascript" src="/react/js/es5-sham.min.js"></script>
+  <![endif]-->
+  <script type="text/javascript" src="/react/js/codemirror.js"></script>
+  <script type="text/javascript" src="/react/js/javascript.js"></script>
+  <script type="text/javascript" src="/react/js/react.js"></script>
+  <script type="text/javascript" src="/react/js/JSXTransformer.js"></script>
+  <script type="text/javascript" src="/react/js/live_editor.js"></script>
+  <script type="text/javascript" src="/react/js/showdown.js"></script>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="nav-main">
+      <div class="wrap">
+        <a class="nav-home" href="/react/index.zh-CN.html">
+          <img class="nav-logo" src="/react/img/logo.svg" width="36" height="36">
+          React
+        </a>
+        <ul class="nav-site">
+          <li><a href="/react/docs.zh-CN/getting-started.html">文档</a></li>
+          <li><a href="/react/support.html">支持</a></li>
+          <li><a href="/react/downloads.html">下载</a></li>
+          <li><a href="/react/blog/">博客</a></li>
+          <li><a href="http://github.com/facebook/react">github</a>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <section class="content wrap documentationContent">
+  <div class="nav-docs">
+  <!-- Docs Nav -->
+  
+    <div class="nav-docs-section">
+      <h3>快速入门</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/getting-started.html">开始学习</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/tutorial.html">教程</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/thinking-in-react.html">React编程思想</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>社区资源</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/videos.html">视频教程</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/complementary-tools.html">辅助工具</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/examples.html">范例</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>指南</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/why-react.html">为什么使用 React?</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/displaying-data.html">数据显示</a>
+            
+              <ul>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/jsx-in-depth.html">深入 JSX</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/jsx-spread.html">JSX 扩展属性</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/jsx-gotchas.html">JSX 陷阱（注意事项）</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/interactivity-and-dynamic-uis.html">交互动态UI</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/multiple-components.html">多组件组合</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/reusable-components.html" class="active">可复用的组件</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/transferring-props.html">传递属性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/forms.html">表单</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/working-with-the-browser.html">在浏览器里运行</a>
+            
+              <ul>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/more-about-refs.html">关于更多参考</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/tooling-integration.html">工具集成</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/addons.html">附件</a>
+            
+              <ul>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/animation.html">动画</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/two-way-binding-helpers.html">双向绑定助手</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/class-name-manipulation.html">类名处理</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/test-utils.html">测试工具</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/clone-with-props.html">克隆组件</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/update.html">直接量助手</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/pure-render-mixin.html">PureRenderMixin</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/perf.html">性能工具</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>参考</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/top-level-api.html">顶级 API</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/component-api.html">组件 API</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/component-specs.html">组件的规格和生命周期</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/tags-and-attributes.html">支持的标签和属性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/events.html">事件系统</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/dom-differences.html">DOM差异</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/special-non-dom-attributes.html">特殊的非DOM属性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/reconciliation.html">一致性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/glossary.html">React (虚拟) DOM术语</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>Flux</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/flux-overview.html">Flux 概览</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/flux-todo-list.html">Flux TodoMVC 教程</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  <!-- Tips Nav -->
+  
+    <div class="nav-docs-section">
+      <h3>小提示</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/tips.zh-CN/introduction.html">介绍</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/inline-styles.html">内联样式</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/if-else-in-JSX.html">JSX中得If-Else</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/self-closing-tag.html">自关闭标签</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/maximum-number-of-jsx-root-nodes.html">最大JSX根节点数</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/style-props-value-px.html">样式中属性为像素单位值简写</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/children-props-type.html">子属性的类型</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/controlled-input-null-value.html">空值的输入限制</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/componentWillReceiveProps-not-triggered-after-mounting.html">在Mounting后，componentWillReceiveProps 不触发</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/props-in-getInitialState-as-anti-pattern.html">在getInitialState中的属性是一种反模式</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/dom-event-listeners.html">在组件中的DOM事件监听</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/initial-ajax.html">通过AJAX来加载初始化数据</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/false-in-jsx.html">JSX中的false</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/communicate-between-components.html">组件之间的通讯</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/expose-component-functions.html">揭示组件功能</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/references-to-components.html">组件的参考说明</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/children-undefined.html">this.props.children 未定义</a>
+          </li>
+        
+      </ul>
+    </div>
+  
+</div>
+
+
+  <div class="inner-content">
+    <h1>
+      可复用的组件
+      <a class="edit-page-link" href="https://github.com/facebook/react/tree/master/docs/docs.zh-CN/05-reusable-components.md" target="_blank">Edit on GitHub</a>
+    </h1>
+    <div class="subHeader"></div>
+
+    <p>在设计界面时，分解出常见的设计元素（按钮，表单字段，布局组件等）成可重用定义良好接口的组件。这样一来，下一次你需要建立一些UI，你可以写更少的代码，这意味着更快的开发时间，减少bug，并下载更少的字节。</p>
+<h2><a class="anchor" name=""></a>属性验证 <a class="hash-link" href="#">#</a></h2>
+<p>以确保您的组件的正确使用对于你的应用程序的成长是有帮助。为此，我们允许你指定<code>propTypes</code>。 <code>React.PropTypes</code>暴露了一系列验证器，可用于确保您收到的数据是有效的。当提供了一个属性是无效值，在JavaScript控制台将显示警告。请注意，由于性能原因<code>propTypes</code>只在开发模式下进行检查。这里有一个例子记录提供了不同的验证：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">propTypes</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// You can declare that a prop is a specific JS primitive. By default, these</span>
+    <span class="c1">// are all optional.</span>
+    <span class="nx">optionalArray</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">array</span><span class="p">,</span>
+    <span class="nx">optionalBool</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">bool</span><span class="p">,</span>
+    <span class="nx">optionalFunc</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">func</span><span class="p">,</span>
+    <span class="nx">optionalNumber</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">number</span><span class="p">,</span>
+    <span class="nx">optionalObject</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">object</span><span class="p">,</span>
+    <span class="nx">optionalString</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">string</span><span class="p">,</span>
+
+    <span class="c1">// Anything that can be rendered: numbers, strings, elements or an array</span>
+    <span class="c1">// containing these types.</span>
+    <span class="nx">optionalNode</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">node</span><span class="p">,</span>
+
+    <span class="c1">// A React element.</span>
+    <span class="nx">optionalElement</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">element</span><span class="p">,</span>
+
+    <span class="c1">// You can also declare that a prop is an instance of a class. This uses</span>
+    <span class="c1">// JS&#39;s instanceof operator.</span>
+    <span class="nx">optionalMessage</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">instanceOf</span><span class="p">(</span><span class="nx">Message</span><span class="p">),</span>
+
+    <span class="c1">// You can ensure that your prop is limited to specific values by treating</span>
+    <span class="c1">// it as an enum.</span>
+    <span class="nx">optionalEnum</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">oneOf</span><span class="p">([</span><span class="s1">&#39;News&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos&#39;</span><span class="p">]),</span>
+
+    <span class="c1">// An object that could be one of many types</span>
+    <span class="nx">optionalUnion</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">oneOfType</span><span class="p">([</span>
+      <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">string</span><span class="p">,</span>
+      <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">number</span><span class="p">,</span>
+      <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">instanceOf</span><span class="p">(</span><span class="nx">Message</span><span class="p">)</span>
+    <span class="p">]),</span>
+
+    <span class="c1">// An array of a certain type</span>
+    <span class="nx">optionalArrayOf</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">arrayOf</span><span class="p">(</span><span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">number</span><span class="p">),</span>
+
+    <span class="c1">// An object with property values of a certain type</span>
+    <span class="nx">optionalObjectOf</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">objectOf</span><span class="p">(</span><span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">number</span><span class="p">),</span>
+
+    <span class="c1">// An object taking on a particular shape</span>
+    <span class="nx">optionalObjectWithShape</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">shape</span><span class="p">({</span>
+      <span class="nx">color</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">string</span><span class="p">,</span>
+      <span class="nx">fontSize</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">number</span>
+    <span class="p">}),</span>
+
+    <span class="c1">// You can chain any of the above with `isRequired` to make sure a warning</span>
+    <span class="c1">// is shown if the prop isn&#39;t provided.</span>
+    <span class="nx">requiredFunc</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">func</span><span class="p">.</span><span class="nx">isRequired</span><span class="p">,</span>
+
+    <span class="c1">// A value of any data type</span>
+    <span class="nx">requiredAny</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">any</span><span class="p">.</span><span class="nx">isRequired</span><span class="p">,</span>
+
+    <span class="c1">// You can also specify a custom validator. It should return an Error</span>
+    <span class="c1">// object if the validation fails. Don&#39;t `console.warn` or throw, as this</span>
+    <span class="c1">// won&#39;t work inside `oneOfType`.</span>
+    <span class="nx">customProp</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">props</span><span class="p">,</span> <span class="nx">propName</span><span class="p">,</span> <span class="nx">componentName</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="sr">/matchme/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">props</span><span class="p">[</span><span class="nx">propName</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Validation failed!&#39;</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="cm">/* ... */</span>
+<span class="p">});</span>
+</code></pre></div><h2><a class="anchor" name=""></a>默认属性值 <a class="hash-link" href="#">#</a></h2>
+<p>React提供了十分直白的方式定义<code>prop</code>的默认值：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">ComponentWithDefaultProps</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">getDefaultProps</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;default value&#39;</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  <span class="cm">/* ... */</span>
+<span class="p">});</span>
+</code></pre></div>
+<p><code>getDefaultProps()</code>的结果将会被缓存和使用以确保即使在父级组件没有设置也有值。这可以让你安全地只管你的属性，而无需重复编写脆弱的代码来处理自身问题。</p>
+<h2><a class="anchor" name="-"></a>传递属性: 一种快捷方式 <a class="hash-link" href="#-">#</a></h2>
+<p>这是一个常见扩展基础HTML的React组件的简单实现方式。通常你会想复制传递HTML属性给你的组件到底层的HTML元素，又想节省打字，你可以使用JSX<em>spread</em>语法来实现这一目的：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">CheckLink</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// This takes any props passed to CheckLink and copies them to &lt;a&gt;</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">a</span> <span class="p">{...</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="s1">&#39;√ &#39;</span><span class="p">}{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/a&gt;;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">CheckLink</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/checked.html&quot;</span><span class="o">&gt;</span>
+    <span class="nx">Click</span> <span class="nx">here</span><span class="o">!</span>
+  <span class="o">&lt;</span><span class="err">/CheckLink&gt;,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div><h2><a class="anchor" name=""></a>单个子级 <a class="hash-link" href="#">#</a></h2>
+<p>通过<code>React.PropTypes.element</code>你可以指定只有单个子级可以被传递到一个组件。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">propTypes</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">children</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">isRequired</span>
+  <span class="p">},</span>
+
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">}</span> <span class="c1">// This must be exactly one element or it will throw.</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">});</span>
+</code></pre></div><h2><a class="anchor" name="mixins"></a>mixins <a class="hash-link" href="#mixins">#</a></h2>
+<p>组件在React里面是最好的代码复用方式，但是有时不同的组件或许要共享一些公共的功能。这里有时叫做<a href="http://en.wikipedia.org/wiki/Cross-cutting_concern">横切关注点</a>. React 提供 <code>mixins</code> 来解决这类问题.</p>
+
+<p>有一个普通的例子是一个组件想要定时更新自身状态。简单的做法是<code>setInterval()</code>，但当你不需要它时，重要的是要取消这个定时来节省内存。React提供了<a href="/react/docs/working-with-the-browser.html#component-lifecycle">生命周期方法</a>，让你知道当组件将要被创建或销毁。我们来创建一个使用这些方法并提供一个简单的<code>setInterval()</code>函数，当你使用这个简单的mixins,在组件被摧毁时，将自动得到清理。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">SetIntervalMixin</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">componentWillMount</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">intervals</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="p">},</span>
+  <span class="nx">setInterval</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">intervals</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">setInterval</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">));</span>
+  <span class="p">},</span>
+  <span class="nx">componentWillUnmount</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">intervals</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">clearInterval</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">TickTock</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">mixins</span><span class="o">:</span> <span class="p">[</span><span class="nx">SetIntervalMixin</span><span class="p">],</span> <span class="c1">// Use the mixin</span>
+  <span class="nx">getInitialState</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span><span class="nx">seconds</span><span class="o">:</span> <span class="mi">0</span><span class="p">};</span>
+  <span class="p">},</span>
+  <span class="nx">componentDidMount</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setInterval</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">tick</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">// Call a method on the mixin</span>
+  <span class="p">},</span>
+  <span class="nx">tick</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">seconds</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">seconds</span> <span class="o">+</span> <span class="mi">1</span><span class="p">});</span>
+  <span class="p">},</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+        <span class="nx">React</span> <span class="nx">has</span> <span class="nx">been</span> <span class="nx">running</span> <span class="k">for</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">seconds</span><span class="p">}</span> <span class="nx">seconds</span><span class="p">.</span>
+      <span class="o">&lt;</span><span class="err">/p&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">TickTock</span> <span class="o">/&gt;</span><span class="p">,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>mixins的一个很好的功能是，如果一个组件使用多个mixins和一些mixins定义相同的生命周期方法（比如，当组件被销毁，即几个混入也会做一些清理），所有的生命周期方法，保证被调用。在mixins上定义的方法按照mixins的列出顺序运行，然后在组件的方法内调用。</p>
+
+
+    <div class="docs-prevnext">
+      
+        <a class="docs-prev" href="/react/docs/multiple-components.html">&larr; 上一篇</a>
+      
+      
+        <a class="docs-next" href="/react/docs/transferring-props.html">下一篇 &rarr;</a>
+      
+    </div>
+  </div>
+</section>
+
+
+    <footer class="wrap">
+      <div class="left">
+        A Facebook &amp; Instagram collaboration.<br>
+        <a href="/react/acknowledgements.html">Acknowledgements</a>
+      </div>
+      <div class="right">
+        &copy; 2013&ndash;2014 Facebook Inc.<br>
+        Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+      </div>
+    </footer>
+  </div>
+  <div id="fb-root"></div>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41298772-1', 'facebook.github.io');
+    ga('send', 'pageview');
+
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=623268441017527";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>JSX 陷阱（注意事项） | React</title>
+  <meta name="viewport" content="width=device-width">
+  <meta property="og:title" content="JSX 陷阱（注意事项） | React">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://facebook.github.io/react/docs.zh-CN/jsx-gotchas.html">
+  <meta property="og:image" content="http://facebook.github.io/react/img/logo_og.png">
+  <meta property="og:description" content="A JavaScript library for building user interfaces">
+  <meta property="fb:app_id" content="623268441017527">
+
+  <link rel="shortcut icon" href="/react/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="React" href="http://facebook.github.io/react/feed.xml">
+
+  <link rel="stylesheet" href="/react/css/syntax.css">
+  <link rel="stylesheet" href="/react/css/codemirror.css">
+  <link rel="stylesheet" href="/react/css/react.css">
+
+  <script type="text/javascript" src="//use.typekit.net/vqa1hcx.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <!--[if lte IE 8]>
+  <script type="text/javascript" src="/react/js/html5shiv.min.js"></script>
+  <script type="text/javascript" src="/react/js/es5-shim.min.js"></script>
+  <script type="text/javascript" src="/react/js/es5-sham.min.js"></script>
+  <![endif]-->
+  <script type="text/javascript" src="/react/js/codemirror.js"></script>
+  <script type="text/javascript" src="/react/js/javascript.js"></script>
+  <script type="text/javascript" src="/react/js/react.js"></script>
+  <script type="text/javascript" src="/react/js/JSXTransformer.js"></script>
+  <script type="text/javascript" src="/react/js/live_editor.js"></script>
+  <script type="text/javascript" src="/react/js/showdown.js"></script>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="nav-main">
+      <div class="wrap">
+        <a class="nav-home" href="/react/index.zh-CN.html">
+          <img class="nav-logo" src="/react/img/logo.svg" width="36" height="36">
+          React
+        </a>
+        <ul class="nav-site">
+          <li><a href="/react/docs.zh-CN/getting-started.html">文档</a></li>
+          <li><a href="/react/support.html">支持</a></li>
+          <li><a href="/react/downloads.html">下载</a></li>
+          <li><a href="/react/blog/">博客</a></li>
+          <li><a href="http://github.com/facebook/react">github</a>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <section class="content wrap documentationContent">
+  <div class="nav-docs">
+  <!-- Docs Nav -->
+  
+    <div class="nav-docs-section">
+      <h3>快速入门</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/getting-started.html">开始学习</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/tutorial.html">教程</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/thinking-in-react.html">React编程思想</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>社区资源</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/videos.html">视频教程</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/complementary-tools.html">辅助工具</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/examples.html">范例</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>指南</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/why-react.html">为什么使用 React?</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/displaying-data.html">数据显示</a>
+            
+              <ul>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/jsx-in-depth.html">深入 JSX</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/jsx-spread.html">JSX 扩展属性</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/jsx-gotchas.html" class="active">JSX 陷阱（注意事项）</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/interactivity-and-dynamic-uis.html">交互动态UI</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/multiple-components.html">多组件组合</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/reusable-components.html">可复用的组件</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/transferring-props.html">传递属性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/forms.html">表单</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/working-with-the-browser.html">在浏览器里运行</a>
+            
+              <ul>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/more-about-refs.html">关于更多参考</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/tooling-integration.html">工具集成</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/addons.html">附件</a>
+            
+              <ul>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/animation.html">动画</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/two-way-binding-helpers.html">双向绑定助手</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/class-name-manipulation.html">类名处理</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/test-utils.html">测试工具</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/clone-with-props.html">克隆组件</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/update.html">直接量助手</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/pure-render-mixin.html">PureRenderMixin</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/perf.html">性能工具</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>参考</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/top-level-api.html">顶级 API</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/component-api.html">组件 API</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/component-specs.html">组件的规格和生命周期</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/tags-and-attributes.html">支持的标签和属性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/events.html">事件系统</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/dom-differences.html">DOM差异</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/special-non-dom-attributes.html">特殊的非DOM属性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/reconciliation.html">一致性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/glossary.html">React (虚拟) DOM术语</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>Flux</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/flux-overview.html">Flux 概览</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/flux-todo-list.html">Flux TodoMVC 教程</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  <!-- Tips Nav -->
+  
+    <div class="nav-docs-section">
+      <h3>小提示</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/tips.zh-CN/introduction.html">介绍</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/inline-styles.html">内联样式</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/if-else-in-JSX.html">JSX中得If-Else</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/self-closing-tag.html">自关闭标签</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/maximum-number-of-jsx-root-nodes.html">最大JSX根节点数</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/style-props-value-px.html">样式中属性为像素单位值简写</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/children-props-type.html">子属性的类型</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/controlled-input-null-value.html">空值的输入限制</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/componentWillReceiveProps-not-triggered-after-mounting.html">在Mounting后，componentWillReceiveProps 不触发</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/props-in-getInitialState-as-anti-pattern.html">在getInitialState中的属性是一种反模式</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/dom-event-listeners.html">在组件中的DOM事件监听</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/initial-ajax.html">通过AJAX来加载初始化数据</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/false-in-jsx.html">JSX中的false</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/communicate-between-components.html">组件之间的通讯</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/expose-component-functions.html">揭示组件功能</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/references-to-components.html">组件的参考说明</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/children-undefined.html">this.props.children 未定义</a>
+          </li>
+        
+      </ul>
+    </div>
+  
+</div>
+
+
+  <div class="inner-content">
+    <h1>
+      JSX 陷阱（注意事项）
+      <a class="edit-page-link" href="https://github.com/facebook/react/tree/master/docs/docs.zh-CN/02.3-jsx-gotchas.md" target="_blank">Edit on GitHub</a>
+    </h1>
+    <div class="subHeader"></div>
+
+    <p>虽然JSX看起来像HTML ，但在你也许还会碰到一些重大的差异。 </p>
+
+<blockquote>
+<p>注意:</p>
+
+<p>对于DOM的差异，如内联<code>样式</code>的属性, 查看 <a href="/react/docs/dom-differences.html">这里</a>.</p>
+</blockquote>
+<h2><a class="anchor" name="html"></a>HTML实体 <a class="hash-link" href="#html">#</a></h2>
+<p>在JSX里你可以使用转义字符的方式插入HTML实体。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">First</span> <span class="o">&amp;</span><span class="nx">middot</span><span class="p">;</span> <span class="nx">Second</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+</code></pre></div>
+<p>如果你想要在动态内容里展示HTML实体的话，在默认情况下你将会遇到对所有要显示的字符串方式进行两次编码转义的问题作为React的编码转义，这么做是为防止各种XSS攻击。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Bad: It displays &quot;First &amp;middot; Second&quot;</span>
+<span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{</span><span class="s1">&#39;First &amp;middot; Second&#39;</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+</code></pre></div>
+<p>有多种方法的工作，解决此问题。最简单的一种是直接在Javascript编写的Unicode字符。您需要确保该文件保存为UTF-8编码，以及以正确的UTF- 8字符集设置，以便浏览器能够正确显示。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{</span><span class="s1">&#39;First · Second&#39;</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+</code></pre></div>
+<p>一个更安全的替代方法是找到<a href="http://www.fileformat.info/info/unicode/char/b7/index.htm">对应于该实体的unicode的编码</a>，并在一个JavaScript字符串的内使用它。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{</span><span class="s1">&#39;First \u00b7 Second&#39;</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{</span><span class="s1">&#39;First &#39;</span> <span class="o">+</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="mi">183</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; Second&#39;</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+</code></pre></div>
+<p>你也可以使用字符串和JSX元素的混合数组。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{[</span><span class="s1">&#39;First &#39;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;&amp;</span><span class="nx">middot</span><span class="p">;</span><span class="o">&lt;</span><span class="err">/span&gt;, &#39; Second&#39;]}&lt;/div&gt;</span>
+</code></pre></div>
+<p>作为最后的手段，你总是可以使用插入原始HTML的能力来解决这个问题。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">dangerouslySetInnerHTML</span><span class="o">=</span><span class="p">{{</span><span class="nx">__html</span><span class="o">:</span> <span class="s1">&#39;First &amp;middot; Second&#39;</span><span class="p">}}</span> <span class="o">/&gt;</span>
+</code></pre></div><h2><a class="anchor" name="html"></a>自定义HTML属性 <a class="hash-link" href="#html">#</a></h2>
+<p>如果您定义一些属性到原生的HTML元素，如果这些属性不在HTML规范内的话，React是不会去渲染这些属性。如果你想使用自定义属性，你应该在这些属性前加&#39;data-&#39;前缀。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">data</span><span class="o">-</span><span class="nx">custom</span><span class="o">-</span><span class="nx">attribute</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span> <span class="o">/&gt;</span>
+</code></pre></div>
+<p><a href="http://www.w3.org/WAI/intro/aria">Web辅助</a> 属性以<code>aria-</code>开始才能被正确显示</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">aria</span><span class="o">-</span><span class="nx">hidden</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span> <span class="o">/&gt;</span>
+</code></pre></div>
+
+    <div class="docs-prevnext">
+      
+        <a class="docs-prev" href="/react/docs/jsx-spread.html">&larr; 上一篇</a>
+      
+      
+        <a class="docs-next" href="/react/docs/interactivity-and-dynamic-uis.html">下一篇 &rarr;</a>
+      
+    </div>
+  </div>
+</section>
+
+
+    <footer class="wrap">
+      <div class="left">
+        A Facebook &amp; Instagram collaboration.<br>
+        <a href="/react/acknowledgements.html">Acknowledgements</a>
+      </div>
+      <div class="right">
+        &copy; 2013&ndash;2014 Facebook Inc.<br>
+        Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+      </div>
+    </footer>
+  </div>
+  <div id="fb-root"></div>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41298772-1', 'facebook.github.io');
+    ga('send', 'pageview');
+
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=623268441017527";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+</body>
+</html>

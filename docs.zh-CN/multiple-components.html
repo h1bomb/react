@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>多组件组合 | React</title>
+  <meta name="viewport" content="width=device-width">
+  <meta property="og:title" content="多组件组合 | React">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://facebook.github.io/react/docs.zh-CN/multiple-components.html">
+  <meta property="og:image" content="http://facebook.github.io/react/img/logo_og.png">
+  <meta property="og:description" content="A JavaScript library for building user interfaces">
+  <meta property="fb:app_id" content="623268441017527">
+
+  <link rel="shortcut icon" href="/react/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="React" href="http://facebook.github.io/react/feed.xml">
+
+  <link rel="stylesheet" href="/react/css/syntax.css">
+  <link rel="stylesheet" href="/react/css/codemirror.css">
+  <link rel="stylesheet" href="/react/css/react.css">
+
+  <script type="text/javascript" src="//use.typekit.net/vqa1hcx.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <!--[if lte IE 8]>
+  <script type="text/javascript" src="/react/js/html5shiv.min.js"></script>
+  <script type="text/javascript" src="/react/js/es5-shim.min.js"></script>
+  <script type="text/javascript" src="/react/js/es5-sham.min.js"></script>
+  <![endif]-->
+  <script type="text/javascript" src="/react/js/codemirror.js"></script>
+  <script type="text/javascript" src="/react/js/javascript.js"></script>
+  <script type="text/javascript" src="/react/js/react.js"></script>
+  <script type="text/javascript" src="/react/js/JSXTransformer.js"></script>
+  <script type="text/javascript" src="/react/js/live_editor.js"></script>
+  <script type="text/javascript" src="/react/js/showdown.js"></script>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="nav-main">
+      <div class="wrap">
+        <a class="nav-home" href="/react/index.zh-CN.html">
+          <img class="nav-logo" src="/react/img/logo.svg" width="36" height="36">
+          React
+        </a>
+        <ul class="nav-site">
+          <li><a href="/react/docs.zh-CN/getting-started.html">文档</a></li>
+          <li><a href="/react/support.html">支持</a></li>
+          <li><a href="/react/downloads.html">下载</a></li>
+          <li><a href="/react/blog/">博客</a></li>
+          <li><a href="http://github.com/facebook/react">github</a>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <section class="content wrap documentationContent">
+  <div class="nav-docs">
+  <!-- Docs Nav -->
+  
+    <div class="nav-docs-section">
+      <h3>快速入门</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/getting-started.html">开始学习</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/tutorial.html">教程</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/thinking-in-react.html">React编程思想</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>社区资源</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/videos.html">视频教程</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/complementary-tools.html">辅助工具</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/examples.html">范例</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>指南</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/why-react.html">为什么使用 React?</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/displaying-data.html">数据显示</a>
+            
+              <ul>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/jsx-in-depth.html">深入 JSX</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/jsx-spread.html">JSX 扩展属性</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/jsx-gotchas.html">JSX 陷阱（注意事项）</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/interactivity-and-dynamic-uis.html">交互动态UI</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/multiple-components.html" class="active">多组件组合</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/reusable-components.html">可复用的组件</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/transferring-props.html">传递属性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/forms.html">表单</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/working-with-the-browser.html">在浏览器里运行</a>
+            
+              <ul>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/more-about-refs.html">关于更多参考</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/tooling-integration.html">工具集成</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/addons.html">附件</a>
+            
+              <ul>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/animation.html">动画</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/two-way-binding-helpers.html">双向绑定助手</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/class-name-manipulation.html">类名处理</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/test-utils.html">测试工具</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/clone-with-props.html">克隆组件</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/update.html">直接量助手</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/pure-render-mixin.html">PureRenderMixin</a>
+                  </li>
+                
+                  <li>
+                    <a href="/react/docs.zh-CN/perf.html">性能工具</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>参考</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/top-level-api.html">顶级 API</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/component-api.html">组件 API</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/component-specs.html">组件的规格和生命周期</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/tags-and-attributes.html">支持的标签和属性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/events.html">事件系统</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/dom-differences.html">DOM差异</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/special-non-dom-attributes.html">特殊的非DOM属性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/reconciliation.html">一致性</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/glossary.html">React (虚拟) DOM术语</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+    <div class="nav-docs-section">
+      <h3>Flux</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/docs.zh-CN/flux-overview.html">Flux 概览</a>
+            
+          </li>
+        
+          <li>
+            <a href="/react/docs.zh-CN/flux-todo-list.html">Flux TodoMVC 教程</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  <!-- Tips Nav -->
+  
+    <div class="nav-docs-section">
+      <h3>小提示</h3>
+      <ul>
+        
+          <li>
+            <a href="/react/tips.zh-CN/introduction.html">介绍</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/inline-styles.html">内联样式</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/if-else-in-JSX.html">JSX中得If-Else</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/self-closing-tag.html">自关闭标签</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/maximum-number-of-jsx-root-nodes.html">最大JSX根节点数</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/style-props-value-px.html">样式中属性为像素单位值简写</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/children-props-type.html">子属性的类型</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/controlled-input-null-value.html">空值的输入限制</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/componentWillReceiveProps-not-triggered-after-mounting.html">在Mounting后，componentWillReceiveProps 不触发</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/props-in-getInitialState-as-anti-pattern.html">在getInitialState中的属性是一种反模式</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/dom-event-listeners.html">在组件中的DOM事件监听</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/initial-ajax.html">通过AJAX来加载初始化数据</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/false-in-jsx.html">JSX中的false</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/communicate-between-components.html">组件之间的通讯</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/expose-component-functions.html">揭示组件功能</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/references-to-components.html">组件的参考说明</a>
+          </li>
+        
+          <li>
+            <a href="/react/tips.zh-CN/children-undefined.html">this.props.children 未定义</a>
+          </li>
+        
+      </ul>
+    </div>
+  
+</div>
+
+
+  <div class="inner-content">
+    <h1>
+      多组件组合
+      <a class="edit-page-link" href="https://github.com/facebook/react/tree/master/docs/docs.zh-CN/04-multiple-components.md" target="_blank">Edit on GitHub</a>
+    </h1>
+    <div class="subHeader"></div>
+
+    <p>到目前为止，我们已经了解了如何编写单个用于展示数据和处理用户输入的组件。接下来我们看下React最好用的功能之一：组合。</p>
+<h2><a class="anchor" name="-"></a>动机: 关注分离 <a class="hash-link" href="#-">#</a></h2>
+<p>通过构建可重用其他组件定义良好接口的模块化组件，你在用函数或类时，得到很多一致性的好处。具体来说，你可以<em>分离不同的关注</em>使你的应用程序即时是你通过建立新的组件也相当的简单。为你的应用程序建立一个自定义组件库，使你建立展示的最适合你的领域方式的UI。</p>
+<h2><a class="anchor" name=""></a>组合的例子 <a class="hash-link" href="#">#</a></h2>
+<p>我们来创建一个通过Facebook Graph接口展示身份照片和用户名的简单头像组件。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">Avatar</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">ProfilePic</span> <span class="nx">username</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">username</span><span class="p">}</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="nx">ProfileLink</span> <span class="nx">username</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">username</span><span class="p">}</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">ProfilePic</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;http://graph.facebook.com/&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">username</span> <span class="o">+</span> <span class="s1">&#39;/picture&#39;</span><span class="p">}</span> <span class="o">/&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">ProfileLink</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;http://www.facebook.com/&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">username</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">username</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="err">/a&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Avatar</span> <span class="nx">username</span><span class="o">=</span><span class="s2">&quot;pwh&quot;</span> <span class="o">/&gt;</span><span class="p">,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div><h2><a class="anchor" name=""></a>从属关系 <a class="hash-link" href="#">#</a></h2>
+<p>在上面的例子中, <code>Avatar</code>的实例<em>拥有</em><code>ProfilePic</code>的实例和<code>ProfileLink</code>的实例. 在React中, <strong>所有者组件可以设置其他组件的<code>props</code></strong>. 具体来说, 如果一个<code>X</code>组件在<code>Y</code>组件的<code>render()</code>方法中创建，那么就说<code>X</code>从属于<code>Y</code>。正如之前讲的，一个组件不能改变它的<code>props</code>-当组件的所有者一旦设置之后就保持不变了。这个关键特性保证了用户界面的一致性。</p>
+
+<p>这就很重要的勾画出从属关系和父子关系的区别。从属关系是React的特性，而父子关系来源仅是你所熟知和喜爱的DOM。上面的例子，<code>Avatar</code>拥有<code>Div</code>，<code>ProfilePic</code> 和 <code>ProfileLink</code>的实例，而<code>Div</code>是 <code>ProfilePic</code> 和 <code>ProfileLink</code> 实例的<strong>父亲</strong>（而非拥有者）。</p>
+<h2><a class="anchor" name=""></a>子级 <a class="hash-link" href="#">#</a></h2>
+<p>当你创建一个React组件的实例时，你可以添加React组件或者JavaScript表达式在标签之间，就像这样：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">Parent</span><span class="o">&gt;&lt;</span><span class="nx">Child</span> <span class="o">/&gt;&lt;</span><span class="err">/Parent&gt;</span>
+</code></pre></div>
+<p><code>Parent</code>可以通过访问特殊的<code>this.props.children</code>属性读取子级。<strong><code>this.props.children</code> 是一个不透明的数据结构:</strong> 通过<a href="/react/docs/top-level-api.html#react.children">React.Children 的说明</a>来操作使用。</p>
+<h3><a class="anchor" name=""></a>子级校正 <a class="hash-link" href="#">#</a></h3>
+<p><strong>校正是React在每一次渲染中更新DOM的一个过程。</strong>大体来说，子级的调整是根据渲染的顺序来定得。比如，有两个渲染过程生成以下各个标记：</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">// Render Pass 1
+<span class="nt">&lt;Card&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Paragraph 1<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Paragraph 2<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/Card&gt;</span>
+// Render Pass 2
+<span class="nt">&lt;Card&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Paragraph 2<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/Card&gt;</span>
+</code></pre></div>
+<p>直观来看, <code>&lt;p&gt;Paragraph 1&lt;/p&gt;</code> 被移除了。事实上，React将会调整改变第一个子级的文本内容，然后销毁最后一个子级节点。React的调整是根据子级的<em>顺序</em>来的.</p>
+<h3><a class="anchor" name=""></a>子级的状态 <a class="hash-link" href="#">#</a></h3>
+<p>对于大部分组件，这并不是什么大不了的事。然而在<code>this.state</code>整个渲染过程中，对于有状态的组件维持数据，这是非常有问题的。</p>
+
+<p>在大多数情况下，可以通过隐藏元素来替代销毁元素：</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">// Render Pass 1
+<span class="nt">&lt;Card&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Paragraph 1<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Paragraph 2<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/Card&gt;</span>
+// Render Pass 2
+<span class="nt">&lt;Card&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">{{display:</span> <span class="err">&#39;</span><span class="na">none</span><span class="err">&#39;}}</span><span class="nt">&gt;</span>Paragraph 1<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Paragraph 2<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/Card&gt;</span>
+</code></pre></div><h3><a class="anchor" name=""></a>动态的子级 <a class="hash-link" href="#">#</a></h3>
+<p>像子级来回调整（就像在搜索结果中）或者一些新组件插入到列表的前面（就像在流中）这些情况就更复杂了。在这种情况下，每个子级的标示和状态，必须保持整个渲染过程中，可以给每个子级分配一个唯一的识别<code>key</code>：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">results</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">ol</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">results</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">result</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;;</span>
+        <span class="p">})}</span>
+      <span class="o">&lt;</span><span class="err">/ol&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div>
+<p>当React调整这些加了键名的子级时，可以确保通过<code>key</code>进行重新排序（而不是彻底重来）或销毁（而不是重用）。</p>
+
+<p>这个<code>key</code>应该<em>一直</em>被直接赋值在数组中的组件，而不是在HTML容器中各个数组组件的子级。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// WRONG!</span>
+<span class="kd">var</span> <span class="nx">ListItemWrapper</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">results</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="o">&lt;</span><span class="nx">ListItemWrapper</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="nx">result</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">;</span>
+        <span class="p">})}</span>
+      <span class="o">&lt;</span><span class="err">/ul&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// Correct :)</span>
+<span class="kd">var</span> <span class="nx">ListItemWrapper</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">results</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+           <span class="k">return</span> <span class="o">&lt;</span><span class="nx">ListItemWrapper</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="nx">result</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">;</span>
+        <span class="p">})}</span>
+      <span class="o">&lt;</span><span class="err">/ul&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>你也可以通过子级的键名传递对象。这些键名的对象将会作为<code>key</code>被每一个值使用。然而，要记住，JavaScript不保证属性的排序将被保留，是非常重要的。在实际应用中的浏览器会保留属性顺序<strong>除了</strong>为可以解析为一个32位无符号整数的属性。数字属性将被按数字顺序排列并排在其它性质之前。如果发生这种情况React会使组件在顺序之外渲染。这可通过给键名添加前缀来避免：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">{};</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">results</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// If result.id can look like a number (consider short hashes), then</span>
+      <span class="c1">// object iteration order is not guaranteed. In this case, we add a prefix</span>
+      <span class="c1">// to ensure the keys are strings.</span>
+      <span class="nx">items</span><span class="p">[</span><span class="s1">&#39;result-&#39;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">result</span><span class="p">.</span><span class="nx">text</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;;</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">ol</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">items</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="err">/ol&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div><h2><a class="anchor" name=""></a>数据流 <a class="hash-link" href="#">#</a></h2>
+<p>在React中，就像上面所说的数据流是通过<code>props</code>从所有者组件传递给从属组件。这是一个高效的单向绑定：所有者绑定从属组件的属性通过所有者组件基于<code>props</code>和<code>state</code>计算出的一些值。由于这是一个递归过程，数据的改变会自动反射到那些每一个被使用的地方。</p>
+<h2><a class="anchor" name=""></a>对于性能的注意事项 <a class="hash-link" href="#">#</a></h2>
+<p>你可能会认为这是性能消耗是巨大的，如果有在主组件中有大量的节点，应对不断变化的数据。好消息是，JavaScript的执行效率是快速以及<code>render()</code>方法往往也是很简单的，因此在大多数应用中，这过程非常快的。此外，性能瓶颈几乎总是DOM变动，而不是JS执行同时React通过使用批量操作和变化检测进行优化。</p>
+
+<p>不过，有时候你真的想在你的表现细粒度的控制。在这种情况下，简单地重写`shouldComponentUpdate（）&#39;，当你想要React跳过子级树的处理直接返回false。查看 <a href="/react/docs/component-specs.html">React引用参考</a> 获取更多信息。</p>
+
+<blockquote>
+<p>注意:</p>
+
+<p>当数据发生改变如果 <code>shouldComponentUpdate()</code> 返回false , React 将无法同步变化到界面。当你这么做要确定知道这一点，当你有一个明显的性能问题才使用这个功能。 
+不要小看JavaScript的速度相对于DOM有多快。</p>
+</blockquote>
+
+
+    <div class="docs-prevnext">
+      
+        <a class="docs-prev" href="/react/docs/interactivity-and-dynamic-uis.html">&larr; 上一篇</a>
+      
+      
+        <a class="docs-next" href="/react/docs/reusable-components.html">下一篇 &rarr;</a>
+      
+    </div>
+  </div>
+</section>
+
+
+    <footer class="wrap">
+      <div class="left">
+        A Facebook &amp; Instagram collaboration.<br>
+        <a href="/react/acknowledgements.html">Acknowledgements</a>
+      </div>
+      <div class="right">
+        &copy; 2013&ndash;2014 Facebook Inc.<br>
+        Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+      </div>
+    </footer>
+  </div>
+  <div id="fb-root"></div>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41298772-1', 'facebook.github.io');
+    ga('send', 'pageview');
+
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=623268441017527";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+</body>
+</html>
