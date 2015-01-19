@@ -4,11 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>JSX 展开属性 （Spread Attributes） | React</title>
+  <title>事件系统 | React</title>
   <meta name="viewport" content="width=device-width">
-  <meta property="og:title" content="JSX 展开属性 （Spread Attributes） | React">
+  <meta property="og:title" content="事件系统 | React">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://facebook.github.io/react/docs.zh-CN/jsx-spread.html">
+  <meta property="og:url" content="http://facebook.github.io/react/docs.zh-CN/events.html">
   <meta property="og:image" content="http://facebook.github.io/react/img/logo_og.png">
   <meta property="og:description" content="A JavaScript library for building user interfaces">
   <meta property="fb:app_id" content="623268441017527">
@@ -124,7 +124,7 @@
                   </li>
                 
                   <li>
-                    <a href="/react/docs.zh-CN/jsx-spread.html" class="active">JSX 扩展属性</a>
+                    <a href="/react/docs.zh-CN/jsx-spread.html">JSX 扩展属性</a>
                   </li>
                 
                   <li>
@@ -247,7 +247,7 @@
           </li>
         
           <li>
-            <a href="/react/docs.zh-CN/events.html">事件系统</a>
+            <a href="/react/docs.zh-CN/events.html" class="active">事件系统</a>
             
           </li>
         
@@ -374,45 +374,131 @@
 
   <div class="inner-content">
     <h1>
-      JSX 展开属性 （Spread Attributes）
-      <a class="edit-page-link" href="https://github.com/facebook/react/tree/master/docs/docs.zh-CN/02.2-jsx-spread.md" target="_blank">Edit on GitHub</a>
+      事件系统
+      <a class="edit-page-link" href="https://github.com/facebook/react/tree/master/docs/docs.zh-CN/ref-05-events.md" target="_blank">Edit on GitHub</a>
     </h1>
     <div class="subHeader"></div>
 
-    <p>如果你事先知道模块需要的全部 Props（属性），JSX 很容易地这样写：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">component</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="nx">foo</span><span class="o">=</span><span class="p">{</span><span class="nx">x</span><span class="p">}</span> <span class="nx">bar</span><span class="o">=</span><span class="p">{</span><span class="nx">y</span><span class="p">}</span> <span class="o">/&gt;</span><span class="p">;</span>
-</code></pre></div><h2><a class="anchor" name="-props-"></a>修改 Props 是不好的，明白吗 <a class="hash-link" href="#-props-">#</a></h2>
-<p>如果你不知道要设置哪些 Props，那么现在最好不要设置它：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">component</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="o">/&gt;</span><span class="p">;</span>
-  <span class="nx">component</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span> <span class="c1">// 不好</span>
-  <span class="nx">component</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">bar</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span> <span class="c1">// 同样不好</span>
+    <h2><a class="anchor" name=""></a>合成事件 <a class="hash-link" href="#">#</a></h2>
+<p>事件处理程序通过 <code>合成事件</code>（<code>SyntheticEvent</code>）的实例传递，<code>SyntheticEvent</code> 是浏览器原生事件跨浏览器的封装。<code>SyntheticEvent</code> 和浏览器原生事件一样有 <code>stopPropagation()</code>、<code>preventDefault()</code> 接口，而且这些接口夸浏览器兼容。</p>
+
+<p>如果出于某些原因想使用浏览器原生事件，可以使用 <code>nativeEvent</code> 属性获取。每个和成事件（<code>SyntheticEvent</code>）对象都有以下属性：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">boolean</span> <span class="nx">bubbles</span>
+<span class="kr">boolean</span> <span class="nx">cancelable</span>
+<span class="nx">DOMEventTarget</span> <span class="nx">currentTarget</span>
+<span class="kr">boolean</span> <span class="nx">defaultPrevented</span>
+<span class="nb">Number</span> <span class="nx">eventPhase</span>
+<span class="kr">boolean</span> <span class="nx">isTrusted</span>
+<span class="nx">DOMEvent</span> <span class="nx">nativeEvent</span>
+<span class="k">void</span> <span class="nx">preventDefault</span><span class="p">()</span>
+<span class="k">void</span> <span class="nx">stopPropagation</span><span class="p">()</span>
+<span class="nx">DOMEventTarget</span> <span class="nx">target</span>
+<span class="nb">Date</span> <span class="nx">timeStamp</span>
+<span class="nb">String</span> <span class="nx">type</span>
 </code></pre></div>
-<p>这样是反模式，因为 React 不能帮你检查属性类型（propTypes）。这样即使你的 属性类型有错误也不能得到清晰的错误提示。</p>
+<blockquote>
+<p>注意：</p>
 
-<p>Props 应该被当作禁止修改的。修改 props 对象可能会导致预料之外的结果，所以最好不要去修改 props 对象。</p>
-<h2><a class="anchor" name="-spread-attributes"></a>扩展属性 （Spread Attributes） <a class="hash-link" href="#-spread-attributes">#</a></h2>
-<p>现在你可以使用 JSX 的新特性 - 扩展属性：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{};</span>
-  <span class="nx">props</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
-  <span class="nx">props</span><span class="p">.</span><span class="nx">bar</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">component</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span> <span class="o">/&gt;</span><span class="p">;</span>
+<p>React v0.12 中，事件处理程序返回 <code>false</code> 不再停止事件传播，取而代之，应该根据需要手动触发 <code>e.stopPropagation()</code> 或 <code>e.preventDefault()</code>。</p>
+</blockquote>
+<h2><a class="anchor" name=""></a>支持的事件 <a class="hash-link" href="#">#</a></h2>
+<p>React 将事件统一化，使事件在不同浏览器上有一致的属性。</p>
+
+<p>下面的事件处理程序在事件冒泡阶段被触发。如果要注册事件捕获处理程序，应该使用 <code>Capture</code> 事件，例如使用 <code>onClickCapture</code> 处理点击事件的捕获阶段，而不是 <code>onClick</code>。</p>
+<h3><a class="anchor" name=""></a>剪贴板事件 <a class="hash-link" href="#">#</a></h3>
+<p>事件名称：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">onCopy onCut onPaste
 </code></pre></div>
-<p>传入对象的属性会被复制到模块内。</p>
+<p>属性：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">DOMDataTransfer</span> <span class="nx">clipboardData</span>
+</code></pre></div><h3><a class="anchor" name=""></a>键盘事件 <a class="hash-link" href="#">#</a></h3>
+<p>事件名称：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">onKeyDown onKeyPress onKeyUp
+</code></pre></div>
+<p>属性：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">boolean</span> <span class="nx">altKey</span>
+<span class="nb">Number</span> <span class="nx">charCode</span>
+<span class="kr">boolean</span> <span class="nx">ctrlKey</span>
+<span class="kd">function</span> <span class="nx">getModifierState</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span>
+<span class="nb">String</span> <span class="nx">key</span>
+<span class="nb">Number</span> <span class="nx">keyCode</span>
+<span class="nb">String</span> <span class="nx">locale</span>
+<span class="nb">Number</span> <span class="nx">location</span>
+<span class="kr">boolean</span> <span class="nx">metaKey</span>
+<span class="kr">boolean</span> <span class="nx">repeat</span>
+<span class="kr">boolean</span> <span class="nx">shiftKey</span>
+<span class="nb">Number</span> <span class="nx">which</span>
+</code></pre></div><h3><a class="anchor" name=""></a>焦点事件 <a class="hash-link" href="#">#</a></h3>
+<p>事件名称</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">onFocus onBlur
+</code></pre></div>
+<p>属性：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">DOMEventTarget</span> <span class="nx">relatedTarget</span>
+</code></pre></div><h3><a class="anchor" name=""></a>表单事件 <a class="hash-link" href="#">#</a></h3>
+<p>事件名称：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">onChange onInput onSubmit
+</code></pre></div>
+<p>关于 <code>onChange</code> 事件的更多信息，参见 <a href="/react/docs/forms-zh-CN.html">表单组件</a>。</p>
+<h3><a class="anchor" name=""></a>鼠标事件 <a class="hash-link" href="#">#</a></h3>
+<p>事件名称：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">onClick onDoubleClick onDrag onDragEnd onDragEnter onDragExit onDragLeave
+onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave
+onMouseMove onMouseOut onMouseOver onMouseUp
+</code></pre></div>
+<p>属性：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">boolean</span> <span class="nx">altKey</span>
+<span class="nb">Number</span> <span class="nx">button</span>
+<span class="nb">Number</span> <span class="nx">buttons</span>
+<span class="nb">Number</span> <span class="nx">clientX</span>
+<span class="nb">Number</span> <span class="nx">clientY</span>
+<span class="kr">boolean</span> <span class="nx">ctrlKey</span>
+<span class="kd">function</span> <span class="nx">getModifierState</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span>
+<span class="kr">boolean</span> <span class="nx">metaKey</span>
+<span class="nb">Number</span> <span class="nx">pageX</span>
+<span class="nb">Number</span> <span class="nx">pageY</span>
+<span class="nx">DOMEventTarget</span> <span class="nx">relatedTarget</span>
+<span class="nb">Number</span> <span class="nx">screenX</span>
+<span class="nb">Number</span> <span class="nx">screenY</span>
+<span class="kr">boolean</span> <span class="nx">shiftKey</span>
+</code></pre></div><h3><a class="anchor" name=""></a>触控事件 <a class="hash-link" href="#">#</a></h3>
+<p>在渲染任意组件之前调用 <code>React.initializeTouchEvents(true)</code>，以启用触控事件。</p>
 
-<p>它能被多次使用，也可以和其它属性一起用。注意顺序很重要，后面的会覆盖掉前面的。</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="s1">&#39;default&#39;</span> <span class="p">};</span>
-  <span class="kd">var</span> <span class="nx">component</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">Component</span> <span class="p">{...</span><span class="nx">props</span><span class="p">}</span> <span class="nx">foo</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;override&#39;</span><span class="p">}</span> <span class="o">/&gt;</span><span class="p">;</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span> <span class="c1">// &#39;override&#39;</span>
-</code></pre></div><h2><a class="anchor" name="-...-"></a>这个奇怪的 <code>...</code> 标记是什么？ <a class="hash-link" href="#-...-">#</a></h2>
-<p>这个 <code>...</code> 操作符（也被叫做）已经被 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator">ES6 数组</a> 支持。相关的还有 ES7 规范草案中的 <a href="https://github.com/sebmarkbage/ecmascript-rest-spread">Object 剩余和展开属性（Rest and Spread Properties）</a>。我们利用了这些还在制定中标准中已经被支持的特性来使 JSX 拥有更优雅的语法。</p>
-
+<p>事件名称：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">onTouchCancel onTouchEnd onTouchMove onTouchStart
+</code></pre></div>
+<p>属性：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">boolean</span> <span class="nx">altKey</span>
+<span class="nx">DOMTouchList</span> <span class="nx">changedTouches</span>
+<span class="kr">boolean</span> <span class="nx">ctrlKey</span>
+<span class="kd">function</span> <span class="nx">getModifierState</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span>
+<span class="kr">boolean</span> <span class="nx">metaKey</span>
+<span class="kr">boolean</span> <span class="nx">shiftKey</span>
+<span class="nx">DOMTouchList</span> <span class="nx">targetTouches</span>
+<span class="nx">DOMTouchList</span> <span class="nx">touches</span>
+</code></pre></div><h3><a class="anchor" name=""></a>用户界面事件 <a class="hash-link" href="#">#</a></h3>
+<p>事件名称：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">onScroll
+</code></pre></div>
+<p>属性：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">Number</span> <span class="nx">detail</span>
+<span class="nx">DOMAbstractView</span> <span class="nx">view</span>
+</code></pre></div><h3><a class="anchor" name=""></a>滚轮事件 <a class="hash-link" href="#">#</a></h3>
+<p>事件名称：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">onWheel
+</code></pre></div>
+<p>属性：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">Number</span> <span class="nx">deltaMode</span>
+<span class="nb">Number</span> <span class="nx">deltaX</span>
+<span class="nb">Number</span> <span class="nx">deltaY</span>
+<span class="nb">Number</span> <span class="nx">deltaZ</span>
+</code></pre></div>
 
     <div class="docs-prevnext">
       
-        <a class="docs-prev" href="/react/docs/jsx-in-depth.html">&larr; 上一篇</a>
+        <a class="docs-prev" href="/react/docs/tags-and-attributes.html">&larr; 上一篇</a>
       
       
-        <a class="docs-next" href="/react/docs/jsx-gotchas.html">下一篇 &rarr;</a>
+        <a class="docs-next" href="/react/docs/dom-differences.html">下一篇 &rarr;</a>
       
     </div>
   </div>
